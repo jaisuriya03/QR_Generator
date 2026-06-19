@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+/* 1. HIDE THE ACTUAL RADIO CONTROLS */
+.tracker {
+    display: none;
+}
+
+/* 2. STYLE RADIO LABELS TO LOOK LIKE RECTANGULAR BUTTONS */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.option-label {
+    background-color: #f0f2f5;
+    border: 2px solid transparent;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.option-label:hover {
+    background-color: #e4e6eb;
+}
+
+/* 3. HIGHLIGHT THE ACTIVE BUTTON USING PURE CSS */
+#url:checked ~ .options-grid label[for="url"],
+#wifi:checked ~ .options-grid label[for="wifi"],
+#location:checked ~ .options-grid label[for="location"] {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+/* 4. HIDE ALL FORM SECTIONS BY DEFAULT */
+.form-section {
+    display: none;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* 5. SHOW ONLY THE SECTION ASSOCIATED WITH THE CHECKED RADIO BUTTON */
+#url:checked ~ form #url-section,
+#wifi:checked ~ form #wifi-section,
+#location:checked ~ form #location-section {
+    display: block;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}

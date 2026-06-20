@@ -23,7 +23,7 @@
 
 
 
-    <form action="/generate" method="POST">
+    <form action="/generate" method="POST" autocomplete="off">
         <div id="url-section" class="form-section">
             <div class="input-group">
                 <label for="url_input">Website Link</label>
@@ -57,5 +57,14 @@
 
         <button type="submit" class="submit-btn">Generate QR Code</button>
     </form>
+
+    {% if qr_image %}
+    <div class="qr_result">
+        <h2>Generated QR Code ({{ qr_type }})</h2>
+        <img src="data:image/png;base64,{{ qr_image }}" alt="Generated QR Code">
+        <br>
+        <a href="data:image/png;base64,{{ qr_image }}" download="qrcode_{{ qr_type }}.png" class="download-btn">Download QR Code</a>
+    </div>
+    {% endif %}
 </body>
 </html>
